@@ -7,9 +7,11 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.12",
+    "firebase": "^9.12.1",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "recoil": "^0.7.6",
     "tailwind-scrollbar": "^2.1.0-preview.0",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
