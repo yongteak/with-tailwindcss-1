@@ -28,7 +28,7 @@ const Home = ({
   topRated,
   trendingNow
 }: Props) => {
-  console.log('comedyMovies', comedyMovies);
+  // console.log('comedyMovies', comedyMovies);
   return (
     // <div className="relative h-[140vh]">
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
@@ -37,9 +37,9 @@ const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className='relative pb-24 pl-4 lg:space-x-24 lg:pl-16'>
+      <main className='relative pb-24 pl-4 lg:pl-16'>
         <Banner netflixOriginals={netflixOriginals} />
-        <section className="md:space-y-24">
+        <section className="md:space-y-20">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />

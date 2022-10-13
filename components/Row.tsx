@@ -12,13 +12,11 @@ interface Props {
 
 function Row({ title, movies }: Props) {
     const rowRef = useRef<HTMLDivElement>(null)
-    const [isMoved, setIsMoved] = useState(false)
-
+    const [isMoved, setIsMoved] = useState(false);
     const handleClick = (direction: string) => {
         setIsMoved(true)
         if (rowRef.current) {
             const { scrollLeft, clientWidth } = rowRef.current
-
             const scrollTo =
                 direction === 'left'
                     ? scrollLeft - clientWidth
@@ -33,15 +31,20 @@ function Row({ title, movies }: Props) {
                 {title}
             </h2>
             <div className="relative group md:-ml-2">
-                <ChevronLeftIcon className="absolute top-0 bottom-0 z-40 m-auto transition opacity-0 cursor-pointer left-2 h-9 w-9 hover:scale-125 group-hover:opacity-100" />
-                
-                <div className="flex scrollbar-hide items-center space-x-0.5 overflow-x-scroll md:space-x-2.5">
+                <ChevronLeftIcon
+                    className={`absolute top-0 bottom-0 z-40 m-auto transition opacity-0 cursor-pointer
+                        left-2 h-9 w-9 hover:scale-125 group-hover:opacity-100 ${!isMoved && 'hidden'} `}
+                    onClick={() => handleClick('left')}/>
+
+                <div ref={rowRef} className="flex scrollbar-hide items-center space-x-0.5 overflow-x-scroll md:p-2 md:space-x-2.5">
                     {movies.map((movie)=> (
                         <Thumbnail key={movie.id} movie={movie} />
                     ))}
                 </div>
-                
-                <ChevronRightIcon className="absolute top-0 bottom-0 z-40 m-auto transition opacity-0 cursor-pointer left-2 h-9 w-9 hover:scale-125 group-hover:opacity-100" />
+
+                <ChevronRightIcon className={`absolute right-2 top-0 bottom-0 z-40 m-auto transition opacity-0 cursor-pointer
+                        h-9 w-9 hover:scale-125 group-hover:opacity-100 ${!isMoved && 'hidden'}`}
+                    onClick={() => handleClick('right')} />
             </div>
         </div>
     );
