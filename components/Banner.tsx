@@ -22,7 +22,7 @@ function Banner({ netflixOriginals }: Props) {
     // console.log('movie',movie);
     // console.log(baseUrl,)
     return (
-        <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
+        <div className="flex flex-col py-16 space-y-2 lg:h-[85vh] lg:justify-end md:space-y-4 lg:pb-12">
             <div className="absolute top-0 left-0 w-screen h-[120vh] -z-10">
                 <Image src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
                 layout="fill"
